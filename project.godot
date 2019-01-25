@@ -14,6 +14,15 @@ config/name="Living on the Edge"
 run/main_scene="res://Scenes/MainScene.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=720
+window/size/height=1280
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+window/stretch/shrink="1"
+
 [rendering]
 
 quality/intended_usage/framebuffer_allocation=0

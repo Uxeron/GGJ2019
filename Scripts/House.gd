@@ -12,14 +12,14 @@ func _ready():
 func _physics_process(delta):
 	rightMass = 0
 	leftMass = 0
-	
+
 	for body in $Area2D.get_overlapping_bodies():
 		if body.position.x > position.x:
 			rightMass += 1
 		else:
 			leftMass += 1
 
-	
+
 	#if Input.is_key_pressed(KEY_A):
 	if rightMass < leftMass:
 		rotSpeed -= rotSpdDelta;
@@ -31,5 +31,5 @@ func _physics_process(delta):
 			rotSpeed -= rotSpdDelta;
 		elif rotSpeed < 0:
 			rotSpeed += rotSpdDelta;
-	
+
 	rotate(rotSpeed * delta)
