@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/Home.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/RigidBody2D.gd" type="Script" id=2]
+
+[node name="Home" type="Sprite" index="0"]
+
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -240, -420 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="RigidBody2D" type="KinematicBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( -175, -280, -175, 0, 175, 0, 175, -280, 160, -280, 160, -28, -160, -28, -160, -280 )
+
+
