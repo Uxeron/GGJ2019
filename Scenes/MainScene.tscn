@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/BG1.png" type="Texture" id=3]
+[ext_resource path="res://Art/game_background_2/layers/clouds_3.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/clouds_3.gd" type="Script" id=5]
 
 [node name="MainScene" type="Node2D" index="0"]
+
+_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="0"]
 
@@ -11,7 +16,7 @@ position = Vector2( 0, -180 )
 anchor_mode = 1
 rotating = false
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 1, 1 )
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -34,6 +39,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Home" parent="." index="1" instance=ExtResource( 1 )]
 
+scale = Vector2( 0.5, 0.5 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
 [node name="Box" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 67.7151, -141.99 )
@@ -45,5 +53,24 @@ position = Vector2( -98.4568, -90.3545 )
 [node name="Box3" parent="." index="4" instance=ExtResource( 2 )]
 
 position = Vector2( 81.0446, -241.047 )
+
+[node name="BG1" type="Sprite" parent="." index="5"]
+
+position = Vector2( -19.5548, -182.968 )
+scale = Vector2( 1.19867, 1.19867 )
+z_index = -2
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Z Index" ]
+
+[node name="clouds_3" type="Sprite" parent="." index="6"]
+
+self_modulate = Color( 1, 1, 1, 0.552471 )
+position = Vector2( -1061.58, -396.678 )
+z_index = -1
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+script = ExtResource( 5 )
+_sections_unfolded = [ "Region", "Visibility", "Z Index" ]
 
 

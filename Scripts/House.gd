@@ -12,5 +12,9 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_key_pressed(KEY_A):
 		rotate(-1.0 * delta)
+	if Input.get_accelerometer().x < 0:
+		rotate(-1.0 * delta)
+	if Input.get_accelerometer().x > 0:
+		rotate(1.0 * delta)
 	if Input.is_key_pressed(KEY_D):
 		rotate(1.0 * delta)
