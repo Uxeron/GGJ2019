@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Sprite
 
 # class member variables go here, for example:
 # var a = 2
@@ -9,7 +9,8 @@ func _ready():
 	# Initialization here
 	pass
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _physics_process(delta):
+	if Input.is_key_pressed(KEY_A):
+		rotate(-1.0 * delta)
+	if Input.is_key_pressed(KEY_D):
+		rotate(1.0 * delta)
