@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/game_background_2/layers/clouds_3.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/clouds_3.gd" type="Script" id=2]
+
+[node name="clouds_3" type="Sprite"]
+
+self_modulate = Color( 1, 1, 1, 0.552471 )
+position = Vector2( -696.984, 479.425 )
+z_index = -1
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1920, 1080 )
+script = ExtResource( 2 )
+_sections_unfolded = [ "Region", "Transform", "Visibility", "Z Index" ]
+
+
