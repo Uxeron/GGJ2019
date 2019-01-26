@@ -35,7 +35,7 @@ position = Vector2( 340.839, 650.616 )
 [node name="clouds_3" type="Sprite" parent="." index="2"]
 
 self_modulate = Color( 1, 1, 1, 0.552471 )
-position = Vector2( -945.773, 479.425 )
+position = Vector2( -696.984, 479.425 )
 z_index = -1
 texture = ExtResource( 5 )
 region_enabled = true
