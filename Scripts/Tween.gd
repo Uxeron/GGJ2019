@@ -1,14 +1,14 @@
 extends Tween
 
 var skipped = false
-
+const ANIMATION_TIME = 2
 func _ready():
 	# Move the "You fell!" label down
 	interpolate_property($Label, "rect_position", 
 						Vector2(35, -400), 
 						Vector2(35, 500), 
-						4, 
-						Tween.TRANS_LINEAR, Tween.EASE_OUT)
+						ANIMATION_TIME, 
+						Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 
 
 func _unhandled_input(event):

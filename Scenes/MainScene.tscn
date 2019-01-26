@@ -49,6 +49,6 @@ _sections_unfolded = [ "Mouse", "Rect" ]
 [node name="Transition" parent="Control" index="0" instance=ExtResource( 3 )]
 
 mouse_filter = 2
-_sections_unfolded = [ "Material", "Mouse", "Rect" ]
+_sections_unfolded = [ "Material", "Mouse", "Rect", "Region" ]
 
 
