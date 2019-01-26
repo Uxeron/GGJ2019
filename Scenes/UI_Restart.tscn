@@ -17,7 +17,7 @@ passby_press = false
 action = ""
 visibility_mode = 0
 script = ExtResource( 3 )
-_sections_unfolded = [ "Rect", "Textures" ]
+_sections_unfolded = [ "Rect", "Textures", "Transform" ]
 
 [node name="Label" type="Label" parent="." index="0"]
 
@@ -41,9 +41,5 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "Mouse", "custom_fonts" ]
-
-[connection signal="mouse_entered" from="Label" to="." method="_on_Label_mouse_entered"]
-
-[connection signal="mouse_exited" from="Label" to="." method="_on_Label_mouse_exited"]
 
 

@@ -6,24 +6,12 @@ var mouseTouching = false
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT:
-			if mouseTouching:
+			if (get_global_mouse_position().x < global_position.x + 300) and (get_global_mouse_position().x > global_position.x) and (get_global_mouse_position().y < global_position.y + 150) and (get_global_mouse_position().y > global_position.y):
 				_on_Restart_button()
-"""
-func _physics_process(delta):
-	if is_pressed():
-		_on_Restart_button()
-		disabled = true
-"""
+
 
 func _on_Restart_button():
 	#get_node("/root/MainScene").reloadScene()
 	if disabled: return
 	get_node("/root/MainScene/Control/Transition").transition(get_viewport().get_texture(), global_position)
 
-
-func _on_Label_mouse_entered():
-	mouseTouching = true
-
-
-func _on_Label_mouse_exited():
-	mouseTouching = false
