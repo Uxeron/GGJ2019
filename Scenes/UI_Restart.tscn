@@ -42,4 +42,8 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
+[connection signal="mouse_entered" from="Label" to="." method="_on_Label_mouse_entered"]
+
+[connection signal="mouse_exited" from="Label" to="." method="_on_Label_mouse_exited"]
+
 
