@@ -5,27 +5,17 @@
 [ext_resource path="res://Scripts/UI_Restart.gd" type="Script" id=3]
 [ext_resource path="res://MainFont.tres" type="DynamicFont" id=4]
 
-[node name="Restart" type="TextureButton"]
+[node name="Restart" type="TouchScreenButton"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 602.0
-margin_bottom = 305.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 2 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 2 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
 script = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
@@ -52,6 +42,6 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[connection signal="button_up" from="." to="." method="_on_Restart_button_up"]
+[connection signal="pressed" from="." to="." method="_on_Restart_button"]
 
 

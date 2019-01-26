@@ -19,7 +19,7 @@ void fragment() {
 	if (distance(uv, middlePos) > width) 
 		COLOR = col;
 	else
-		COLOR = vec4(1.0, 1.0, 1.0, 0.2);
+		COLOR = vec4(1.0, 1.0, 1.0, 0.0);
 }"
 
 [sub_resource type="ShaderMaterial" id=2]
@@ -38,7 +38,7 @@ lossy_quality = 0.7
 flags = 7
 size = Vector2( 720, 1280 )
 
-[node name="Transition" type="TextureRect" index="0"]
+[node name="Transition" type="TextureRect"]
 
 material = SubResource( 2 )
 anchor_left = 0.0
