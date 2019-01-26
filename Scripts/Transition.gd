@@ -19,7 +19,7 @@ func transition():
 func _on_Tween_tween_completed(object, key):
 	if !firedOnce:
 		firedOnce = true
-		get_node("/root/MainScene").reloadScene()
+		get_node("/root/MainScene").loadScene("ToBeRestarted2")
 		$Tween.interpolate_property(get_material(), "shader_param/width", 
 									1.0, 
 									0.0, 

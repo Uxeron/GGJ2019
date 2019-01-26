@@ -64,7 +64,8 @@ func _physics_process(delta):
 
 func _on_Area2D2_area_entered(area):
 	sliding = true
-	get_node("/root/MainScene/ToBeRestarted/UI_Gameover/Tween").start()
+	var currLevel = get_node("/root/MainScene").CurrentLevel
+	get_node("/root/MainScene/" + currLevel + "/UI_Gameover/Tween").start()
 	$Timer.start()
 
 
