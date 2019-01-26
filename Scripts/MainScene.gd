@@ -1,10 +1,15 @@
 extends Node2D
 
 var TBR = load("res://Scenes/ToBeRestarted.tscn")
+var CurrentLevel = "ToBeRestarted"
 
 func reloadScene():
-	$ToBeRestarted.queue_free()
-	yield(get_tree(),"idle_frame")
-	var TBRinstance = TBR.instance()
-	TBRinstance.name = "ToBeRestarted"
-	add_child(TBRinstance)
+	loadScene(CurrentLevel)
+	
+func loadScene(ToBeLoaded):
+	get_node(CurrentLevel).queue_free()
+	yield(get_tree(), "idle_frame")
+	var TBL = load("res://Scenes/" + ToBeLoaded + ".tscn")
+	var TBLinstance = TBL.instance()
+	TBLinstance.name = ToBeLoaded
+	add_child(TBLinstance)

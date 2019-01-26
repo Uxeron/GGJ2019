@@ -8,7 +8,7 @@ func _ready():
 	if $RayCast2D.is_colliding():
 		global_position = $RayCast2D.get_collision_point()
 	else:
-		print("shit")
+		print("wack")
 
 func _physics_process(delta):
 	if get_parent().rotation > 0.5:
