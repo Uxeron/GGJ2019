@@ -3,9 +3,9 @@ extends TouchScreenButton
 var disabled = true
 var mouseTouching = false
 
-func _unhandled_input(event):
+func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
+		if event.button_index == BUTTON_LEFT:
 			if mouseTouching:
 				_on_Restart_button()
 """
