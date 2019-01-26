@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Tween.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI_Restart.tscn" type="PackedScene" id=2]
@@ -7,11 +7,44 @@
 
 [sub_resource type="DynamicFont" id=1]
 
-size = 150
+size = 130
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="StreamTexture" id=2]
+
+flags = 4
+load_path = "res://.import/b_4.png-b684815f7a19192992793300eb45669c.stex"
+
+[sub_resource type="StreamTexture" id=3]
+
+flags = 4
+load_path = "res://.import/b_5.png-97745097ebafd193ffb8dbe9138e6145.stex"
+
+[sub_resource type="GDScript" id=4]
+
+script/source = "extends TouchScreenButton
+
+# class member variables go here, for example:
+# var a = 2
+# var b = \"textvar\"
+
+func _ready():
+	# Called when the node is added to the scene for the first time.
+	# Initialization here
+	pass
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass
+
+
+func _on_ExitButton_released():
+	get_tree().quit()
+"
 
 [node name="UI_Gameover" type="Control" index="0"]
 
@@ -42,7 +75,8 @@ script = ExtResource( 1 )
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 201.403, 864.804 )
 scale = Vector2( 0.5, 0.5 )
-_sections_unfolded = [ "Rect", "Textures", "Transform", "Visibility" ]
+z_index = 2
+_sections_unfolded = [ "Rect", "Textures", "Transform", "Visibility", "Z Index" ]
 
 [node name="Label" type="Label" parent="Tween" index="1"]
 
@@ -50,9 +84,9 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -364.0
+margin_left = -278.0
 margin_top = -278.0
-margin_right = 386.0
+margin_right = 278.0
 margin_bottom = -32.0
 rect_pivot_offset = Vector2( 375, 123 )
 rect_clip_content = false
@@ -62,16 +96,23 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "You fell!"
+align = 1
+valign = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
-_sections_unfolded = [ "Rect", "custom_fonts" ]
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts" ]
 
 [node name="ExitButton" parent="Tween" index="2" instance=ExtResource( 4 )]
 
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 201.403, 1051.47 )
 scale = Vector2( 0.5, 0.5 )
+z_index = 2
+normal = SubResource( 2 )
+pressed = SubResource( 3 )
+script = SubResource( 4 )
+_sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [connection signal="tween_completed" from="Tween" to="Tween" method="_on_Tween_completed"]
 

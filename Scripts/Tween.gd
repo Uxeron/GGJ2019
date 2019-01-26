@@ -29,4 +29,10 @@ func _on_Tween_completed(object, key):
 							Color(1.0, 1.0, 1.0, 1.0), 
 							2, 
 							Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		
+		interpolate_property($ExitButton, "modulate", 
+							Color(1.0, 1.0, 1.0, 0.0), 
+							Color(1.0, 1.0, 1.0, 1.0), 
+							2, 
+							Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		start()
