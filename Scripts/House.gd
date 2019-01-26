@@ -5,13 +5,24 @@ var rotSpdDelta = 0.005
 var leftMass = 0
 var rightMass = 0
 var sliding = false
+var waitingToStart = true
 
 var speed = 0
 var accel = 2.0
 
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			waitingToStart = false
+
 
 func _physics_process(delta):
+	if waitingToStart:
+		return
+	
 	if sliding:
+		if global_position.x < -1000 or global_position.x > 1000:
+			return
 		speed += accel
 		if rotation < 0:
 			position += Vector2(-speed * delta, 0.0).rotated(rotation)
@@ -23,7 +34,7 @@ func _physics_process(delta):
 	leftMass = 0
 
 	for body in $Area2D.get_overlapping_bodies():
-		if body.position.x > position.x:
+		if body.position.x > 0:
 			rightMass += 1
 		else:
 			leftMass += 1
@@ -46,6 +57,7 @@ func _physics_process(delta):
 
 func _on_Area2D2_area_entered(area):
 	sliding = true
+	get_node("/root/MainScene/ToBeRestarted/UI_Gameover/Tween").start()
 	$Timer.start()
 
 

@@ -6,8 +6,7 @@ var accel = 1.0
 func _ready():
 	$RayCast2D.force_raycast_update()
 	if $RayCast2D.is_colliding():
-		position = $RayCast2D.get_collision_point()
-		position.y -= 0
+		global_position = $RayCast2D.get_collision_point()
 	else:
 		print("shit")
 
