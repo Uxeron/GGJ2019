@@ -7,11 +7,12 @@
 [ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=6]
 
-[node name="ToBeRestarted" type="Node2D"]
+[node name="ToBeRestarted" type="Node2D" index="0"]
 
 [node name="Home" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 372.915, 900.172 )
+offset = Vector2( -240, -423 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="Player" parent="Home" index="5" instance=ExtResource( 2 )]
@@ -29,7 +30,7 @@ _sections_unfolded = [ "Angular", "Collision", "Pickable" ]
 
 [node name="BG1" parent="." index="1" instance=ExtResource( 4 )]
 
-position = Vector2( 340.839, 650.616 )
+position = Vector2( 340.839, 646 )
 
 [node name="clouds_3" parent="." index="2" instance=ExtResource( 5 )]
 

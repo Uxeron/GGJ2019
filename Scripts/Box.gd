@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
 var speed = 0
-var accel = 1.0
+var accel = 0.2
 var beingCarried = false
 var house
+var angleThreshold = 0.1
 
 func _ready():
 	house = get_parent()
@@ -16,9 +17,9 @@ func _ready():
 func _physics_process(delta):
 	if beingCarried: return
 	
-	if get_parent().rotation > 0.5:
+	if get_parent().rotation > angleThreshold:
 		speed += accel
-	elif get_parent().rotation < -0.5:
+	elif get_parent().rotation < -angleThreshold:
 		speed -= accel
 	else:
 		if speed > 0:
@@ -30,6 +31,7 @@ func _physics_process(delta):
 	
 
 func carryStart(player):
+	speed = 0
 	beingCarried = true
 	house.remove_child(self)
 	player.add_child(self)

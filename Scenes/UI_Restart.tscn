@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Restart" type="TouchScreenButton"]
+[node name="Restart" type="TouchScreenButton" index="0"]
 
 normal = ExtResource( 1 )
 pressed = ExtResource( 2 )
@@ -49,6 +49,8 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "Mouse", "custom_fonts" ]
+
+[connection signal="released" from="." to="." method="_on_Restart_button"]
 
 [connection signal="mouse_entered" from="Label" to="." method="_on_Label_mouse_entered"]
 

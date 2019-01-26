@@ -1,9 +1,8 @@
 extends Sprite
 
 var rotSpeed = 0
-var rotSpdDelta = 0.005
-var leftMass = 0
-var rightMass = 0
+var rotSpdDelta = 0.0001
+var force = 0
 var sliding = false
 var waitingToStart = true
 
@@ -25,9 +24,7 @@ func _physics_process(delta):
 			position += Vector2(speed * delta, 0.0).rotated(rotation)
 		return
 		
-	rightMass = 0
-	leftMass = 0
-
+	force = 0
 	
 	for body in $Area2D.get_overlapping_bodies():
 		if body.get("beingCarried"):
@@ -35,30 +32,10 @@ func _physics_process(delta):
 			
 		if body.get("carrying"):
 			if body.carrying:
-				if body.position.x > 0:
-					rightMass += 1
-				else:
-					leftMass += 1
-				
-		if body.position.x > 0:
-			rightMass += 1
-		else:
-			leftMass += 1
+				force += body.position.x / 10.0
+		force += body.position.x / 10.0
 
-
-
-	#if Input.is_key_pressed(KEY_A):
-	if rightMass < leftMass:
-		rotSpeed -= rotSpdDelta;
-	#elif Input.is_key_pressed(KEY_D):
-	elif rightMass > leftMass:
-		rotSpeed += rotSpdDelta;
-	else:
-		if rotSpeed > 0:
-			rotSpeed -= rotSpdDelta;
-		elif rotSpeed < 0:
-			rotSpeed += rotSpdDelta;
-
+	rotSpeed += rotSpdDelta * force
 	rotate(rotSpeed * delta)
 
 
