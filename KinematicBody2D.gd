@@ -1,8 +1,35 @@
 extends KinematicBody2D
 
-const WALK_SPEED = 200
+export var WALK_SPEED = 200
 
 var velocity = Vector2()
+var carrying = false
+var box = null
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if !carrying:
+				var boxes = $FurnitureCollider.get_overlapping_bodies()
+				if len(boxes) > 0:
+					carrying = true
+
+					var closestBox = boxes[0]
+					var closestDist = position.distance_to(boxes[0].position)
+					for evalBox in boxes:
+						if evalBox == closestBox: continue
+						
+						if position.distance_to(evalBox.position) < closestDist:
+							closestDist = position.distance_to(evalBox.position)
+							closestBox = evalBox
+						
+					box = closestBox
+					box.carryStart(self)
+			else:
+				if box.carryEnd(self):
+					carrying = false
+					box = null
+				
 
 func _physics_process(delta):
     #velocity.y += delta * GRAVITY

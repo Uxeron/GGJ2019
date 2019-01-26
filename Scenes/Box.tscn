@@ -11,7 +11,7 @@ extents = Vector2( 35, 35 )
 [node name="Box" type="KinematicBody2D"]
 
 input_pickable = true
-collision_layer = 1
+collision_layer = 193
 collision_mask = 3
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
@@ -31,5 +31,22 @@ enabled = false
 exclude_parent = true
 cast_to = Vector2( 0, 1000 )
 collision_mask = 2
+
+[node name="Area2D" type="Area2D" parent="." index="3"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 32
+collision_mask = 32
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 1 )
 
 
