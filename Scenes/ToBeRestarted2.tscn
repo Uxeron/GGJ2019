@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/BG2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/game_background_1/layers/sky.png" type="Texture" id=7]
+
+[node name="ToBeRestarted2" type="Node2D" index="0"]
+
+[node name="Home" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 372.915, 900.172 )
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
+
+[node name="Player" parent="Home" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( -13.3531, -70.7955 )
+
+[node name="Box2" parent="Home" index="6" instance=ExtResource( 3 )]
+
+position = Vector2( -98.4568, -90.3541 )
+
+[node name="Box3" parent="Home" index="7" instance=ExtResource( 3 )]
+
+position = Vector2( 81.0446, -240.047 )
+_sections_unfolded = [ "Angular", "Collision", "Pickable" ]
+
+[node name="clouds_3" parent="." index="1" instance=ExtResource( 4 )]
+
+[node name="UI_Gameover" parent="." index="2" instance=ExtResource( 5 )]
+
+[node name="BG1" parent="." index="3" instance=ExtResource( 6 )]
+
+position = Vector2( -511.866, 1185.25 )
+z_index = -8
+
+[node name="sky" type="Sprite" parent="." index="4"]
+
+position = Vector2( 343.125, 665.359 )
+scale = Vector2( 1, 1.27376 )
+z_index = -10
+texture = ExtResource( 7 )
+_sections_unfolded = [ "Z Index" ]
+
+

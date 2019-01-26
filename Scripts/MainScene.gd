@@ -1,6 +1,5 @@
 extends Node2D
 
-var TBR = load("res://Scenes/ToBeRestarted.tscn")
 var CurrentLevel = "ToBeRestarted"
 
 func reloadScene():
@@ -12,4 +11,5 @@ func loadScene(ToBeLoaded):
 	var TBL = load("res://Scenes/" + ToBeLoaded + ".tscn")
 	var TBLinstance = TBL.instance()
 	TBLinstance.name = ToBeLoaded
+	CurrentLevel = ToBeLoaded
 	add_child(TBLinstance)
