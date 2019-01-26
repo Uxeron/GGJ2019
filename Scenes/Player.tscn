@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Character/yellow/alienYellow_walk1.png" type="Texture" id=2]
@@ -25,6 +25,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14.6852, 38.7413 )
+
 [node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
@@ -33,6 +38,7 @@ collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
+WALK_SPEED = 200
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
@@ -42,5 +48,23 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "idle"
+
+[node name="FurnitureCollider" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+monitorable = false
+collision_layer = 0
+collision_mask = 64
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FurnitureCollider" index="0"]
+
+shape = SubResource( 3 )
 
 

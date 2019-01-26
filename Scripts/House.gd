@@ -10,11 +10,6 @@ var waitingToStart = true
 var speed = 0
 var accel = 2.0
 
-func _unhandled_input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			waitingToStart = false
-
 
 func _physics_process(delta):
 	if waitingToStart:
@@ -33,11 +28,23 @@ func _physics_process(delta):
 	rightMass = 0
 	leftMass = 0
 
+	
 	for body in $Area2D.get_overlapping_bodies():
+		if body.get("beingCarried"):
+			if body.beingCarried: continue
+			
+		if body.get("carrying"):
+			if body.carrying:
+				if body.position.x > 0:
+					rightMass += 1
+				else:
+					leftMass += 1
+				
 		if body.position.x > 0:
 			rightMass += 1
 		else:
 			leftMass += 1
+
 
 
 	#if Input.is_key_pressed(KEY_A):
@@ -66,3 +73,7 @@ func _on_Particle_Wait_timeout():
 	yield(get_tree(),"idle_frame")
 	yield(get_tree(),"idle_frame")
 	$Particles2D.amount = 60
+
+
+func _on_TimerStart_timeout():
+	waitingToStart = false

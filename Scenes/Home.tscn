@@ -110,7 +110,7 @@ linear_damp = 0.1
 angular_damp = 1.0
 monitorable = false
 collision_layer = 0
-collision_mask = 9
+collision_mask = 137
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
@@ -170,8 +170,17 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
+[node name="TimerStart" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 2.0
+one_shot = true
+autostart = true
+
 [connection signal="area_entered" from="Area2D2" to="." method="_on_Area2D2_area_entered"]
 
 [connection signal="timeout" from="Timer" to="." method="_on_Particle_Wait_timeout"]
+
+[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]
 
 
