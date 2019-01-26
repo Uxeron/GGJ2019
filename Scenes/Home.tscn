@@ -79,7 +79,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Color", "Emission Shape", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Spread", "Trail" ]
 
-[node name="Home" type="Sprite" index="0"]
+[node name="Home" type="Sprite"]
 
 texture = ExtResource( 1 )
 centered = false

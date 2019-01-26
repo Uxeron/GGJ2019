@@ -29,7 +29,7 @@ visibility_mode = 0
 script = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Label" type="Label" parent="." index="0"]
+[node name="Text" type="Label" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
