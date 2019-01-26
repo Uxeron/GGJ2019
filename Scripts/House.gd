@@ -1,15 +1,24 @@
 extends Sprite
 
 var rotSpeed = 0
-var rotSpdDelta = 0.0005
+var rotSpdDelta = 0.005
 var leftMass = 0
 var rightMass = 0
-const houseWidth = 480
+var sliding = false
 
-func _ready():
-	pass
+var speed = 0
+var accel = 2.0
+
 
 func _physics_process(delta):
+	if sliding:
+		speed += accel
+		if rotation < 0:
+			position += Vector2(-speed * delta, 0.0).rotated(rotation)
+		else:
+			position += Vector2(speed * delta, 0.0).rotated(rotation)
+		return
+		
 	rightMass = 0
 	leftMass = 0
 
@@ -33,3 +42,15 @@ func _physics_process(delta):
 			rotSpeed += rotSpdDelta;
 
 	rotate(rotSpeed * delta)
+
+
+func _on_Area2D2_area_entered(area):
+	sliding = true
+	$Timer.start()
+
+
+func _on_Particle_Wait_timeout():
+	$Particles2D.emitting = true
+	yield(get_tree(),"idle_frame")
+	yield(get_tree(),"idle_frame")
+	$Particles2D.amount = 60

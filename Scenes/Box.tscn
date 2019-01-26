@@ -1,40 +1,35 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Art/WoodenBox.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Box.gd" type="Script" id=1]
+[ext_resource path="res://Art/WoodenBox.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 35, 35 )
 
-[node name="Box" type="RigidBody2D"]
+[node name="Box" type="KinematicBody2D"]
 
-input_pickable = false
+input_pickable = true
 collision_layer = 1
-collision_mask = 1
-mode = 0
-mass = 10.0
-friction = 1.0
-bounce = 0.0
-gravity_scale = 5.0
-custom_integrator = false
-continuous_cd = 0
-contacts_reported = 0
-contact_monitor = false
-sleeping = false
-can_sleep = false
-linear_velocity = Vector2( 0, 0 )
-linear_damp = -1.0
-angular_velocity = 0.0
-angular_damp = -1.0
-_sections_unfolded = [ "Angular" ]
+collision_mask = 3
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Pickable" ]
 
-[node name="RigidBody2D" type="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite" parent="." index="0"]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="2"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 2
 
 
