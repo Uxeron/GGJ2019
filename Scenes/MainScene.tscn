@@ -1,11 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ToBeRestarted.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Dial.tscn" type="PackedScene" id=4]
 
-[node name="MainScene" type="Node2D"]
+[node name="MainScene" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Material", "Visibility" ]
@@ -51,10 +50,5 @@ _sections_unfolded = [ "Mouse", "Rect" ]
 
 mouse_filter = 2
 _sections_unfolded = [ "Material", "Mouse", "Rect", "Region" ]
-
-[node name="Dial" parent="." index="3" instance=ExtResource( 4 )]
-
-position = Vector2( 361.722, 1147.52 )
-scale = Vector2( 0.5, 0.5 )
 
 
