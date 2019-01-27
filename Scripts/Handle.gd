@@ -12,8 +12,9 @@ func _ready():
 
 func _physics_process(delta):
 	currLevel = get_node("/root/MainScene").CurrentLevel
-	print(currLevel)
-	rotation = get_node("/root/MainScene/" + currLevel + "/Home").rotation
+	var currLevelMaxRotation = get_node("/root/MainScene/" + currLevel).max_rotation_degrees
+	var rotation_multiplier = 90.0 / currLevelMaxRotation
+	rotation_degrees = get_node("/root/MainScene/" + currLevel + "/Home").rotation_degrees * rotation_multiplier
 	
 	#rotation = get_node("res://Scenes/Home.tscn").rotation
 #	# Called every frame. Delta is time since last frame.

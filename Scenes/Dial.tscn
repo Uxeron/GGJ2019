@@ -1,18 +1,18 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Art/Dial/png-dial-dial-clock-minutes-marks-design-seconds-720.png" type="Texture" id=1]
+[ext_resource path="res://Art/Dial/Dial.png" type="Texture" id=1]
 [ext_resource path="res://Art/Dial/needle-2074124_1280.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Handle.gd" type="Script" id=3]
 
-[node name="Dial" type="Sprite"]
+[node name="Dial" type="Sprite" index="0"]
 
-modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.486196 )
 texture = ExtResource( 1 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
 [node name="Handle" type="Sprite" parent="." index="0"]
 
-position = Vector2( 0, 190.453 )
+position = Vector2( -3.51633, 170.215 )
 scale = Vector2( 0.15, 0.25 )
 texture = ExtResource( 2 )
 centered = false
