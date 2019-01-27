@@ -12,7 +12,6 @@ func _ready():
 
 func _physics_process(delta):
 	currLevel = get_node("/root/MainScene").CurrentLevel
-	print(currLevel)
 	rotation = get_node("/root/MainScene/" + currLevel + "/Home").rotation
 	
 	#rotation = get_node("res://Scenes/Home.tscn").rotation

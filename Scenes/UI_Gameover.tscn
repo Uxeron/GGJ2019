@@ -47,7 +47,7 @@ func _on_ExitButton_released():
 	get_tree().quit()
 "
 
-[node name="UI_Gameover" type="Control" index="0"]
+[node name="UI_Gameover" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
