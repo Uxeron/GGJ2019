@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Dial.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI_Gamewin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/WinProgressBar.tscn" type="PackedScene" id=10]
 
 [node name="ToBeRestarted" type="Node2D"]
 
@@ -46,4 +48,17 @@ position = Vector2( 334.023, 652.816 )
 position = Vector2( 361.722, 1149.92 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="UI_Gamewin" parent="." index="4" instance=ExtResource( 9 )]
 
+[node name="WinProgressBar" parent="." index="5" instance=ExtResource( 10 )]
+
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 56.0
+margin_top = 151.0
+margin_right = 1953.0
+margin_bottom = 429.0
+rect_scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[connection signal="winLevel" from="WinProgressBar" to="Home" method="_on_Win"]

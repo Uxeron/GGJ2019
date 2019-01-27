@@ -5,8 +5,8 @@ const ANIMATION_TIME = 2
 func _ready():
 	# Move the "You fell!" label down
 	interpolate_property($Label, "rect_position",
-						Vector2(35, -400),
-						Vector2(35, 500),
+						Vector2(-30, -400),
+						Vector2(-30, 500),
 						ANIMATION_TIME,
 						Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 
@@ -23,8 +23,8 @@ func _unhandled_input(event):
 func _on_Tween_completed(object, key):
 	if object is Label:
 		# Make the restart button visible
-		$Restart.disabled = false
-		interpolate_property($Restart, "modulate",
+		$Continue.disabled = false
+		interpolate_property($Continue, "modulate",
 							Color(1.0, 1.0, 1.0, 0.0),
 							Color(1.0, 1.0, 1.0, 1.0),
 							2,

@@ -46,6 +46,12 @@ func _on_Area2D2_area_entered(area):
 	$Timer.start()
 
 
+func _on_Win():
+	waitingToStart = true
+	var currLevel = get_node("/root/MainScene").CurrentLevel
+	get_node("/root/MainScene/" + currLevel + "/UI_Gamewin/Tween").start()
+
+
 func _on_Particle_Wait_timeout():
 	$Particles2D.emitting = true
 	yield(get_tree(),"idle_frame")
