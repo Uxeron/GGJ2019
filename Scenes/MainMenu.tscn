@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Art/UI/b_4.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/b_5.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/ExitButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/BG1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://The Builder.ogg" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -157,6 +158,15 @@ use_top_left = false
 position = Vector2( 340.839, 650.616 )
 
 [node name="clouds_3" parent="." index="2" instance=ExtResource( 7 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="." index="3"]
+
+stream = ExtResource( 8 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 [connection signal="released" from="HBoxContainer/VBoxContainer/MenuOptions/PlayButton" to="HBoxContainer/VBoxContainer/MenuOptions/PlayButton" method="_on_PlayButton_released"]
 

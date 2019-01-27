@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/MainScene.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/ToBeRestarted.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://The Builder.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Transition.tscn" type="PackedScene" id=4]
 
 [node name="MainScene" type="Node2D" index="0"]
 
@@ -37,6 +38,17 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="ToBeRestarted" parent="." index="1" instance=ExtResource( 2 )]
 
+[node name="Music" type="AudioStreamPlayer2D" parent="ToBeRestarted" index="7"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [node name="Control" type="CanvasLayer" parent="." index="2"]
 
 layer = 2
@@ -46,9 +58,7 @@ scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 _sections_unfolded = [ "Mouse", "Rect" ]
 
-[node name="Transition" parent="Control" index="0" instance=ExtResource( 3 )]
+[node name="Transition" parent="Control" index="0" instance=ExtResource( 4 )]
 
 mouse_filter = 2
 _sections_unfolded = [ "Material", "Mouse", "Rect", "Region" ]
-
-

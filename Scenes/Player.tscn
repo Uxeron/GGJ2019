@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://Character/yellow/alienYellow_walk1.png" type="Texture" id=2]
-[ext_resource path="res://Character/yellow/alienYellow_walk2.png" type="Texture" id=3]
-[ext_resource path="res://Character/yellow/alienYellow.png" type="Texture" id=4]
-
-
+[ext_resource path="res://Character/yellow/alienYellow.png" type="Texture" id=2]
+[ext_resource path="res://Character/yellow/alienYellow_walk1.png" type="Texture" id=3]
+[ext_resource path="res://Character/yellow/alienYellow_walk2.png" type="Texture" id=4]
+[ext_resource path="res://Footsteps.ogg" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -16,14 +15,14 @@ height = 15.9122
 [sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 } ]
 
@@ -50,6 +49,7 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "idle"
+_sections_unfolded = [ "Transform" ]
 
 [node name="FurnitureCollider" type="Area2D" parent="." index="2"]
 
@@ -68,5 +68,23 @@ _sections_unfolded = [ "Collision" ]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FurnitureCollider" index="0"]
 
 shape = SubResource( 3 )
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="." index="3"]
+
+stream = ExtResource( 5 )
+volume_db = 0.0
+pitch_scale = 1.5
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 2
 
 
