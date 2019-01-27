@@ -7,7 +7,7 @@ func reloadScene():
 	
 func loadScene(ToBeLoaded):
 	get_node(CurrentLevel).queue_free()
-	#yield(get_tree(), "idle_frame")
+	yield(get_tree(), "idle_frame")
 	var TBL = load("res://Scenes/" + ToBeLoaded + ".tscn")
 	var TBLinstance = TBL.instance()
 	TBLinstance.name = ToBeLoaded
