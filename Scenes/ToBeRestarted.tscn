@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Scenes/BG1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/WinProgressBar.tscn" type="PackedScene" id=7]
 
-[node name="ToBeRestarted" type="Node2D"]
+[node name="ToBeRestarted" type="Node2D" index="0"]
 
 [node name="Home" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -34,5 +35,16 @@ position = Vector2( 340.839, 646 )
 [node name="clouds_3" parent="." index="2" instance=ExtResource( 5 )]
 
 [node name="UI_Gameover" parent="." index="3" instance=ExtResource( 6 )]
+
+[node name="WinProgressBar" parent="." index="4" instance=ExtResource( 7 )]
+
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 56.0
+margin_top = 151.0
+margin_right = 1953.0
+margin_bottom = 429.0
+rect_scale = Vector2( 0.3, 0.3 )
+_sections_unfolded = [ "Rect", "Textures" ]
 
 
