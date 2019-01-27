@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Restart" type="TouchScreenButton"]
+[node name="Restart" type="TouchScreenButton" index="0"]
 
 normal = ExtResource( 1 )
 pressed = ExtResource( 2 )

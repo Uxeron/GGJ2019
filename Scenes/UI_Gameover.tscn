@@ -104,5 +104,3 @@ script = SubResource( 4 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [connection signal="tween_completed" from="Tween" to="Tween" method="_on_Tween_completed"]
-
-

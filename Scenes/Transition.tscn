@@ -27,7 +27,7 @@ lossy_quality = 0.7
 flags = 7
 size = Vector2( 720, 1280 )
 
-[node name="Transition" type="TextureRect"]
+[node name="Transition" type="TextureRect" index="0"]
 
 material = SubResource( 2 )
 anchor_left = 0.0
