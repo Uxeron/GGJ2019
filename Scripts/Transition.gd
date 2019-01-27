@@ -1,6 +1,7 @@
 extends TextureRect
 
 var firedOnce = false
+var reloading = false
 
 export var transitionSpeed = 0.6
 
@@ -19,7 +20,11 @@ func transition():
 func _on_Tween_tween_completed(object, key):
 	if !firedOnce:
 		firedOnce = true
-		get_node("/root/MainScene").loadScene("ToBeRestarted2")
+		if reloading:
+			get_node("/root/MainScene").reloadScene()
+			reloading = false
+		else:
+			get_node("/root/MainScene").loadScene("ToBeRestarted2")
 		$Tween.interpolate_property(get_material(), "shader_param/width", 
 									1.0, 
 									0.0, 
