@@ -46,8 +46,11 @@ func _process(delta):
 	$AnimatedSprite.play()
 	
 	if velocity.x != 0:
+		if !$Walking.playing:
+			$Walking.play()
 		$AnimatedSprite.animation = "right"
 		$AnimatedSprite.flip_h = velocity.x < 0
 	else:
+		$Walking.stop()
 		$AnimatedSprite.animation = "idle"
 		$AnimatedSprite.flip_h = false

@@ -7,9 +7,11 @@ extends Node2D
 export var max_rotation_degrees = 23.0
 
 func _ready():
+	$Music.play(Global.music_position)
+	print("toBeRestarted Music")
+	
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
