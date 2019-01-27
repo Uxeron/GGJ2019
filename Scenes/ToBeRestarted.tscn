@@ -1,44 +1,49 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/BG1.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Dial.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scripts/ToBeRestarted.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/BG1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Dial.tscn" type="PackedScene" id=8]
 
 [node name="ToBeRestarted" type="Node2D"]
 
-[node name="Home" parent="." index="0" instance=ExtResource( 1 )]
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pause" ]
+max_rotation_degrees = 28.0
+
+[node name="Home" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 372.915, 895 )
 _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
-[node name="Player" parent="Home" index="5" instance=ExtResource( 2 )]
+[node name="Player" parent="Home" index="5" instance=ExtResource( 3 )]
 
 position = Vector2( -13.3531, -70.7955 )
 
-[node name="Box2" parent="Home" index="6" instance=ExtResource( 3 )]
+[node name="Box2" parent="Home" index="6" instance=ExtResource( 4 )]
 
 position = Vector2( -98.4568, -90.3541 )
 
-[node name="Box3" parent="Home" index="7" instance=ExtResource( 3 )]
+[node name="Box3" parent="Home" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 81.0446, -240.047 )
 _sections_unfolded = [ "Angular", "Collision", "Pickable" ]
 
-[node name="BG1" parent="." index="1" instance=ExtResource( 4 )]
+[node name="BG1" parent="." index="1" instance=ExtResource( 5 )]
 
-position = Vector2( 340.839, 646 )
+position = Vector2( 334.023, 652.816 )
 
-[node name="clouds_3" parent="." index="2" instance=ExtResource( 5 )]
+[node name="clouds_3" parent="." index="2" instance=ExtResource( 6 )]
 
-[node name="UI_Gameover" parent="." index="3" instance=ExtResource( 6 )]
+[node name="UI_Gameover" parent="." index="3" instance=ExtResource( 7 )]
 
-[node name="Dial" parent="." index="4" instance=ExtResource( 7 )]
+[node name="Dial" parent="." index="4" instance=ExtResource( 8 )]
 
-position = Vector2( 361.722, 1147.52 )
+position = Vector2( 361.722, 1149.92 )
 scale = Vector2( 0.5, 0.5 )
 
 
