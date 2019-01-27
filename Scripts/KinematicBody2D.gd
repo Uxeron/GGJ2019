@@ -6,6 +6,14 @@ var velocity = Vector2()
 var carrying = false
 var box = null
 
+func _ready():
+	$RayCast2D.force_raycast_update()
+	if $RayCast2D.is_colliding():
+		global_position = $RayCast2D.get_collision_point()
+		position.y -= 41
+	else:
+		print("wack")
+
 func _unhandled_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:

@@ -15,7 +15,6 @@ func _ready():
 
 func _on_PlayButton_released():
 	get_node("/root/MainMenu/Music").stop()
-	print("stoped")
 	Global.music_position = get_node("/root/MainMenu/Music").get_playback_position()
 	
 	get_tree().change_scene("res://Scenes/MainScene.tscn")

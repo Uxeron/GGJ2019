@@ -31,7 +31,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 14.6852, 38.7413 )
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 8
@@ -49,6 +49,7 @@ shape = SubResource( 1 )
 
 frames = SubResource( 2 )
 animation = "idle"
+_sections_unfolded = [ "Transform" ]
 
 [node name="FurnitureCollider" type="Area2D" parent="." index="2"]
 
@@ -78,5 +79,12 @@ max_distance = 2000.0
 attenuation = 1.0
 bus = "Master"
 area_mask = 1
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="4"]
+
+enabled = false
+exclude_parent = true
+cast_to = Vector2( 0, 1000 )
+collision_mask = 2
 
 

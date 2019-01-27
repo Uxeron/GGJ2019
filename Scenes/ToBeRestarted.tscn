@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/ToBeRestarted.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Home.tscn" type="PackedScene" id=2]
@@ -7,11 +7,12 @@
 [ext_resource path="res://Scenes/BG1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/clouds_3.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/UI_Gameover.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Dial.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/UI_Gamewin.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/WinProgressBar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/UI_Gamewin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/WinProgressBar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Dial.tscn" type="PackedScene" id=10]
+[ext_resource path="res://The Builder.ogg" type="AudioStream" id=11]
 
-[node name="ToBeRestarted" type="Node2D"]
+[node name="ToBeRestarted" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Pause" ]
@@ -24,7 +25,7 @@ _sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="Player" parent="Home" index="5" instance=ExtResource( 3 )]
 
-position = Vector2( -13.3531, -70.7955 )
+position = Vector2( 100.919, -88.4805 )
 
 [node name="Box2" parent="Home" index="6" instance=ExtResource( 4 )]
 
@@ -32,7 +33,7 @@ position = Vector2( -98.4568, -90.3541 )
 
 [node name="Box3" parent="Home" index="7" instance=ExtResource( 4 )]
 
-position = Vector2( 81.0446, -240.047 )
+position = Vector2( 7.58426, -128.496 )
 _sections_unfolded = [ "Angular", "Collision", "Pickable" ]
 
 [node name="BG1" parent="." index="1" instance=ExtResource( 5 )]
@@ -43,14 +44,9 @@ position = Vector2( 334.023, 652.816 )
 
 [node name="UI_Gameover" parent="." index="3" instance=ExtResource( 7 )]
 
-[node name="Dial" parent="." index="4" instance=ExtResource( 8 )]
+[node name="UI_Gamewin" parent="." index="4" instance=ExtResource( 8 )]
 
-position = Vector2( 361.722, 1149.92 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="UI_Gamewin" parent="." index="4" instance=ExtResource( 9 )]
-
-[node name="WinProgressBar" parent="." index="5" instance=ExtResource( 10 )]
+[node name="WinProgressBar" parent="." index="5" instance=ExtResource( 9 )]
 
 anchor_left = 0.5
 anchor_right = 0.5
@@ -61,4 +57,22 @@ margin_bottom = 429.0
 rect_scale = Vector2( 0.3, 0.3 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
+[node name="Dial" parent="." index="6" instance=ExtResource( 10 )]
+
+position = Vector2( 361.722, 1149.92 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." index="7"]
+
+stream = ExtResource( 11 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
 [connection signal="winLevel" from="WinProgressBar" to="Home" method="_on_Win"]
+
+
