@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Art/UI/b_4.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/b_5.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/PlayButton.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=3]
 [ext_resource path="res://KOMIKAX_.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scenes/ExitButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/BG1.tscn" type="PackedScene" id=6]

@@ -30,7 +30,7 @@ script/source = "extends TouchScreenButton
 # class member variables go here, for example:
 # var a = 2
 # var b = \"textvar\"
-
+var disabled = true
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -41,8 +41,9 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
+	
 func _on_ExitButton_released():
+	if disabled: return
 	get_tree().quit()
 "
 

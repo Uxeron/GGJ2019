@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Art/UI/b_4.png" type="Texture" id=1]
 [ext_resource path="res://Art/UI/b_5.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/ExitButton.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/ExitButton.gd" type="Script" id=3]
 [ext_resource path="res://KOMIKAX_.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
@@ -13,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="ExitButton" type="TouchScreenButton"]
+[node name="ExitButton" type="TouchScreenButton" index="0"]
 
 position = Vector2( 89.7689, 775.47 )
 scale = Vector2( 0.531211, 0.531212 )
